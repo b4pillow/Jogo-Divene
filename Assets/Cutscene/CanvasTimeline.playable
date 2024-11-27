@@ -3309,7 +3309,7 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 31.916666
+        time: 30.5
         value: 0
         inSlope: 0
         outSlope: 0
@@ -3378,7 +3378,7 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 31.916666
+        time: 30.5
         value: 0
         inSlope: 0
         outSlope: 0

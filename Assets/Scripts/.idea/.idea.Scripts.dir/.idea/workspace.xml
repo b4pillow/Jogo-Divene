@@ -29,6 +29,7 @@
     <setting file="file://$PROJECT_DIR$/LifeSystemPlayer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/LifeUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/LittleGosma.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/MainMenu.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MovingPlatform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ParedeQueBloqueia.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PlayerController.cs" root0="SKIP_HIGHLIGHTING" />
@@ -106,6 +107,7 @@
       <workItem from="1731886942812" duration="1756000" />
       <workItem from="1732129513672" duration="5724000" />
       <workItem from="1732141194063" duration="20069000" />
+      <workItem from="1732744510162" duration="605000" />
     </task>
     <servers />
   </component>
