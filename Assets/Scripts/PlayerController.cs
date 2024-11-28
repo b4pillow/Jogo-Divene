@@ -71,8 +71,8 @@ public class PlayerController : MonoBehaviour
    public Transform firePoint;
    public PlayerBullet Special;
    public TMPro.TextMeshProUGUI texto;
-   private AudioSource Sound;
-   
+   public AudioSource Audios;
+   public AudioClip[] sounds;
    void Start()
    {
        pState = GetComponent<PlayerStateList>();
@@ -82,7 +82,8 @@ public class PlayerController : MonoBehaviour
        Position = transform.position;
        knockbacking = false;
        specialContagem = 0;
-       Sound = GetComponent<AudioSource>();
+       Audios = GetComponent<AudioSource>();
+
    }
 
 
@@ -208,6 +209,8 @@ public class PlayerController : MonoBehaviour
            {
                if (directionY == 0 || (directionY < 0 && Grounded()))
                {
+                   Audios.clip = sounds[1];
+                   Audios.Play();
                    Hit(sideAttackTransform, SideAttackArea);
                }
           
@@ -283,6 +286,8 @@ public class PlayerController : MonoBehaviour
   
    public IEnumerator KnockbackEffect(Vector2 direction)
    {
+       Audios.clip = sounds[3];
+       Audios.Play();
        rb.velocity = direction * 20;
        knockbacking = true;
        yield return new WaitForSeconds(0.2f);
@@ -316,6 +321,8 @@ public class PlayerController : MonoBehaviour
        {
            if (Input.GetButtonUp("Jump") && rb.velocity.y > 0)
            {
+               Audios.clip = sounds[2];
+               Audios.Play();
                rb.velocity = new Vector2(rb.velocity.x, 0);
                pState.jumping = false;
            }

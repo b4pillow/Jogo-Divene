@@ -7,9 +7,12 @@ public class OrbDoor : MonoBehaviour
     public int orbePrice;
     private bool opened;
     public float animationSpeed;
+    private AudioSource sound;
+
     void Start()
     {
         opened = false;
+        sound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -41,7 +44,9 @@ public class OrbDoor : MonoBehaviour
             animationDuration -= Time.deltaTime;
             transform.position += (animationSpeed * Time.deltaTime * Vector3.up);
             yield return null;
-        }
-        Destroy(gameObject);
+            
+        } 
+        sound.Play();
+        Destroy(gameObject, 0.7f);
     }
 }

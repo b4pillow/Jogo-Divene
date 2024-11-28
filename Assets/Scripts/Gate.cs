@@ -7,11 +7,14 @@ public class Gate : MonoBehaviour
     [SerializeField] private float animationSpeed = 10f;
     private bool canHit;
 
+    private AudioSource sound;
+
     public int Damage = 10;
 
     private void Awake()
     {
         canHit = true;
+        sound = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -20,7 +23,9 @@ public class Gate : MonoBehaviour
         {
             if (health <= 0)
             {
+                sound.Play();
                 StartCoroutine(OpenGateAndDestroy(1)); // Chama a corrotina
+                Destroy(gameObject, 0.8f);
             }    
         }
     }
