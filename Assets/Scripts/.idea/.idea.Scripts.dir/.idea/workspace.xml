@@ -14,6 +14,7 @@
     <setting file="file://$PROJECT_DIR$/Botão.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CameraFollow.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CheckPoint.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CoinScript.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Cura.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Dialogue.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DialogueControl.cs" root0="SKIP_HIGHLIGHTING" />
@@ -31,6 +32,8 @@
     <setting file="file://$PROJECT_DIR$/LittleGosma.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MainMenu.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/MovingPlatform.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/OrbDoor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/OrbeCounter.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ParedeQueBloqueia.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PlayerController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PlayerStateList.cs" root0="SKIP_HIGHLIGHTING" />
@@ -107,7 +110,8 @@
       <workItem from="1731886942812" duration="1756000" />
       <workItem from="1732129513672" duration="5724000" />
       <workItem from="1732141194063" duration="20069000" />
-      <workItem from="1732744510162" duration="605000" />
+      <workItem from="1732744510162" duration="1197000" />
+      <workItem from="1732762597423" duration="3566000" />
     </task>
     <servers />
   </component>

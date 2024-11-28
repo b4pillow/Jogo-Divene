@@ -18,7 +18,7 @@ public class CoinScript : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             //Sound.Play();
-            GameController.Instace.UpdateScore(scoreValue);
+            //GameController.Instace.UpdateScore(scoreValue);
             Destroy(gameObject, 0.1f);
         }
     }

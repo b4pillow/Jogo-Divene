@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour
     public static GameController Instace;
     public int totalScore;
 
-    public int ScoreText;
+    public TMPro.TextMeshProUGUI ScoreText;
 
 
     public int Score;
@@ -33,12 +33,10 @@ public class GameController : MonoBehaviour
         PauseGame();
     }
 
-    public void UpdateScore( int value)
+    public void UpdateScore(int value)
     {
-        Score += value;
-        //ScoreText.text = Score.ToString();
-        
-        PlayerPrefs.SetInt("Score", Score + totalScore);
+        ScoreText.text = $"x {value}";
+
     }
 
     public void PauseGame()

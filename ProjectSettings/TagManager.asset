@@ -15,6 +15,7 @@ TagManager:
   - Wall
   - BlocoDePedra
   - Lava
+  - Orb
   layers:
   - Default
   - TransparentFX

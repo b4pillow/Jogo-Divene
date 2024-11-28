@@ -1718,6 +1718,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1896265146}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1136937452
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1136937454}
+  - component: {fileID: 1136937453}
+  m_Layer: 0
+  m_Name: "Transi\xE7\xE3o"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1136937453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136937452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac569b5d5e203934c988871b0324c43e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  proximaCenaIndex: 2
+--- !u!4 &1136937454
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136937452}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.3433006, y: -0.77694315, z: 1.7629128}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1144894953
 GameObject:
   m_ObjectHideFlags: 0
@@ -2608,6 +2653,8 @@ PlayableDirector:
     value: {fileID: 1990891473}
   - key: {fileID: -3584963527688906740, guid: b882152147c7b6c4db04bf58dbb8552f, type: 2}
     value: {fileID: 879274966}
+  - key: {fileID: -4730188722344999992, guid: b882152147c7b6c4db04bf58dbb8552f, type: 2}
+    value: {fileID: 1136937452}
   m_ExposedReferences:
     m_References:
     - 5e48b1e52ce50684589ed3a9d39693cd: {fileID: 563245807}
@@ -2990,3 +3037,4 @@ SceneRoots:
   - {fileID: 1210029778}
   - {fileID: 2050057950}
   - {fileID: 1896265146}
+  - {fileID: 1136937454}
