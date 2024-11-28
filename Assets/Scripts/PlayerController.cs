@@ -18,10 +18,6 @@ public class PlayerController : MonoBehaviour
 
 
    bool knockbacking;
-
-
-
-
    [Header("Ground Check")]
    [SerializeField] private Transform groundCheck;
    [SerializeField] private float groundCheckY = 0.2f;
@@ -30,29 +26,15 @@ public class PlayerController : MonoBehaviour
 
 
    PlayerStateList pState;
-
-
    public Rigidbody2D rb { get; private set; }
    private float directionX, directionY;
    private float gravity;
    private Animator anim;
    private bool canDash = true;
    private bool dashed = false;
-
-
    public Vector3 Position;
-
-
    private Vector3 lastCheckpointPosition;
    private bool checkpointSaved = false;
-
-
-
-
-
-
-
-
 
    [Header("Singleton")]
    public static PlayerController Instance;
