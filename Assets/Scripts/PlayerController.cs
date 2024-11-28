@@ -65,6 +65,9 @@ public class PlayerController : MonoBehaviour
        {
            Instance = this;
        }
+
+       MusicManager.Instance.musicaMenu.Stop();
+       MusicManager.Instance.musicaGameplay.Play();
    }
 
 
@@ -271,8 +274,7 @@ public class PlayerController : MonoBehaviour
 
        UpdateNumber();
    }
-
-
+   
    void UpdateNumber()
    {
        if (specialContagem == 0)
@@ -286,7 +288,6 @@ public class PlayerController : MonoBehaviour
 
 
    }
-
 
    IEnumerator CountingEffect()
    {
@@ -349,10 +350,6 @@ public class PlayerController : MonoBehaviour
            anim.SetBool("Jumping", !Grounded());
        }
    }
-
-
-
-
    void UpdateJumpVariables()
    {
        if (Grounded())
@@ -376,8 +373,6 @@ public class PlayerController : MonoBehaviour
            jumpBufferCounter = jumpBufferCounter - Time.deltaTime * 10;
        }
    }
-
-
      public void SaveCheckpoint(Vector3 checkpointPosition)
    {
        lastCheckpointPosition = checkpointPosition;

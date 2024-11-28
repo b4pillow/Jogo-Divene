@@ -5,6 +5,7 @@ using UnityEngine;
 public class OrbeCounter : MonoBehaviour
 {
     public int orbeNumber;
+    public TMPro.TextMeshProUGUI ScoreText;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,9 +21,14 @@ public class OrbeCounter : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Orb"))
         {
+            UpdateOrbeValue(orbeNumber + 1);
             Destroy(collision.gameObject);
-            orbeNumber++;
-            GameController.Instace.UpdateScore(orbeNumber);
         }
+    }
+
+    public void UpdateOrbeValue(int newvalue)
+    {
+        orbeNumber = newvalue;
+        ScoreText.text = $"x {orbeNumber}";
     }
 }
