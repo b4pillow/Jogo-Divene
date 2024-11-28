@@ -4,12 +4,13 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 public class CoinScript : MonoBehaviour
-{ public int scoreValue;
-    //private AudioSource Sound;
+{ 
+    public int scoreValue;
+    private AudioSource Sound;
     
     void Start()
     {
-        //Sound = GetComponent<AudioSource>();
+        Sound = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -17,9 +18,9 @@ public class CoinScript : MonoBehaviour
         
         if (col.gameObject.tag == "Player")
         {
-            //Sound.Play();
+            Sound.Play();
             //GameController.Instace.UpdateScore(scoreValue);
-            Destroy(gameObject, 0.1f);
+            Destroy(gameObject, 0.5f);
         }
     }
 }

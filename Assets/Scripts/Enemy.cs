@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour
     
     public GameObject orbe;
     private float dropChance;
+    private AudioSource Sound;
 
     private void Awake()
     {
@@ -27,7 +28,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-
+        
     }
 
     void Update()
@@ -40,7 +41,7 @@ public class Enemy : MonoBehaviour
                 Instantiate(orbe, transform.position, quaternion.identity);
                 Instantiate(orbe, transform.position, quaternion.identity);
             }
-            Destroy(gameObject);
+           Destroy(gameObject);
         }
 
         if (isRecoiling)

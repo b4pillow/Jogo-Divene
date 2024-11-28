@@ -6,9 +6,11 @@ public class Cura : MonoBehaviour
 {
     [SerializeField] private LifeSystemPlayer vidaPlayer;
     [SerializeField] private LifeUI vidaCura;
+    private AudioSource sound;
 
     void Start()
     {
+        sound = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -21,9 +23,10 @@ public class Cura : MonoBehaviour
         {
             if (vidaPlayer.health < 12)
             {
+                sound.Play();
                 vidaPlayer.health++;
                 vidaCura.ChangeBar(vidaPlayer.health, vidaPlayer.maxHealth);
-                Destroy(gameObject);
+                Destroy(gameObject, 0.6f);
             }
         }
     }

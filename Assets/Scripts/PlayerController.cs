@@ -53,6 +53,7 @@ public class PlayerController : MonoBehaviour
 
 
 
+
    [Header("Singleton")]
    public static PlayerController Instance;
    private void Awake()
@@ -88,7 +89,8 @@ public class PlayerController : MonoBehaviour
    public Transform firePoint;
    public PlayerBullet Special;
    public TMPro.TextMeshProUGUI texto;
-  
+   private AudioSource Sound;
+   
    void Start()
    {
        pState = GetComponent<PlayerStateList>();
@@ -98,6 +100,7 @@ public class PlayerController : MonoBehaviour
        Position = transform.position;
        knockbacking = false;
        specialContagem = 0;
+       Sound = GetComponent<AudioSource>();
    }
 
 
@@ -378,6 +381,5 @@ public class PlayerController : MonoBehaviour
        lastCheckpointPosition = checkpointPosition;
        checkpointSaved = true;
    }
-
 }
 
