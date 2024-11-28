@@ -39,7 +39,6 @@ public class Enemy : MonoBehaviour
             if (dropValue <= dropChance)
             {
                 Instantiate(orbe, transform.position, quaternion.identity);
-                Instantiate(orbe, transform.position, quaternion.identity);
             }
            Destroy(gameObject);
         }

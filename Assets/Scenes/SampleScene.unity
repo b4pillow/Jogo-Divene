@@ -14541,6 +14541,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7816814735348382947, guid: 8c275aabc2d79f9448d437ec97cf0bd4, type: 3}
   m_PrefabInstance: {fileID: 1680779368}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &263912154 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3810740792950131204, guid: 01d43b5f19389584eb5c09e375888382, type: 3}
+  m_PrefabInstance: {fileID: 2779348358235053598}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &264243331
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -71162,7 +71167,7 @@ Transform:
   m_GameObject: {fileID: 1279538033}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -470.6, y: 22.4, z: 0}
+  m_LocalPosition: {x: -241.5, y: -7.4, z: 0}
   m_LocalScale: {x: 2.1225, y: 13.576539, z: 2.1225}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -72020,6 +72025,41 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2959917880712645683, guid: 01d43b5f19389584eb5c09e375888382, type: 3}
   m_PrefabInstance: {fileID: 2779348358235053598}
   m_PrefabAsset: {fileID: 0}
+--- !u!58 &1346644922
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263912154}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.00000047683716}
+  serializedVersion: 2
+  m_Radius: 0.64000005
 --- !u!1 &1351067080
 GameObject:
   m_ObjectHideFlags: 0
@@ -88440,12 +88480,12 @@ MonoBehaviour:
   - Fascinante...
   - "Vou me apresentar. Meu nome \xE9 Khaen, alquimista da vila de Xochimill."
   - "O qu\xEA? Que express\xE3o \xE9 essa?"
-  - "O que foi? Essa express\xE3o no rosto... Nunca ouviu esse nome, pelo visto?"
-  - "J\xE1 ouviu?"
-  - "Pensei que eu fosse o primeiro humano com quem voc\xEA interagia"
+  - Nunca ouviu esse nome, pelo visto?
+  - "Oh, j\xE1 ouviu?"
+  - "Pensei que eu fosse o primeiro humano com quem voc\xEA interagia..."
   - O outro nome? Xochimill?
   - "Fico surpreso em saber que conhe\xE7a Xochimill"
-  - "N\xE3o conhece? Apenas sabe o que \xE9?"
+  - "N\xE3o conhece?"
   - "Ent\xE3o, voc\xEA sabe de algumas coisas deste mundo, mas n\xE3o a maioria?"
   - Entendi...
   - " Apesar de n\xE3o falar, voc\xEA \xE9 bem expressivo. Consigo entender seus
@@ -88456,34 +88496,35 @@ MonoBehaviour:
     Ou seria melhor dizer... n\xE3o-humano?"
   - "Estou brincando, \xE9 claro. Sei que voc\xEA n\xE3o \xE9 humano"
   - "Guelras, um capacete com \xE1gua, pele mucosa e extremamente rosada, olhos pequenos..."
+  - ...
   - "Voc\xEA estava escondido l\xE1 no fundo do lago o tempo todo?"
   - "N\xE3o? Ent\xE3o voc\xEA realmente acaba de nascer..."
+  - ...
   - "A express\xE3o nos seus olhos... h\xE1 algo nela. Algo que n\xE3o consigo decifrar
     completamente"
   - "Voc\xEA parece... perdido, talvez. Ou ser\xE1 que est\xE1 apenas buscando algo?"
   - "Eu tamb\xE9m n\xE3o sou estranho ao caminho da busca, mas o meu \xE9 mais...
     cient\xEDfico."
   - "Voc\xEA j\xE1 ouviu falar de Xochimill?"
-  - "Claro que n\xE3o, n\xE3o \xE9? Parece que voc\xEA tem apenas um sentimento de
-    familiaridade com essa palavra"
-  - Creio que acertei em cheio
+  - "Parece que voc\xEA tem um sentimento de familiaridade com essa palavra"
+  - Hmm...
   - "J\xE1 me disseram que o lago... tem mist\xE9rios profundos. Mas voc\xEA... voc\xEA
     \xE9 algo ainda mais misterioso"
+  - "Tenho uma sensa\xE7\xE3o que devo me aliar a voc\xEA"
+  - Pressinto que estamos mais conectados do que imaginamos
   - "Eu posso ajud\xE1-lo. N\xE3o sou apenas um alquimista, sou algu\xE9m que busca
     entender os segredos do mundo"
   - "Voc\xEA \xE9 claramente diferente, gostaria de estud\xE1-lo"
   - "Se n\xE3o se importar, \xE9 claro"
-  - "Se voc\xEA estiver disposto a me deixar ajud\xE1-lo, talvez possamos descobrir
+  - "Se voc\xEA estiver disposto a me deixar te ajudar, talvez possamos descobrir
     o que h\xE1 por tr\xE1s dessa apar\xEAncia peculiar"
-  - "Tenho uma sensa\xE7\xE3o que devo me aliar a voc\xEA"
-  - Acredito que estamos mais conectados do que imaginamos
+  - "Voc\xEA pode escolher: me acompanhar e entender mais sobre o que est\xE1 acontecendo
+    aqui, ou continuar seguindo seu rumo"
+  - "N\xE3o se preocupe. Eu n\xE3o vou for\xE7ar nada"
   - "J\xE1 que voc\xEA n\xE3o fala, vou adivinhar: voc\xEA quer saber sobre o mundo,
     sobre Xochimill... n\xE3o \xE9?"
-  - "Voc\xEA pode escolher: me acompanhar e entender mais sobre o que est\xE1 acontecendo
-    aqui, ou continuar perdido no escuro"
-  - "N\xE3o se preocupe. Eu n\xE3o vou for\xE7ar nada"
   - "Me encontre em um caminho mais a frente, que darei mais informa\xE7\xF5es"
-  - "Mas cuidado, o trajeto seguinte possui lava e plataformar trai\xE7oeiras."
+  - "Mas cuidado, o trajeto seguinte possui \xE1guas polu\xEDdas e plataformas agitadas"
   actorName: Khaen
   playerLayer:
     serializedVersion: 2
@@ -120384,7 +120425,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3810740792950131204, guid: 01d43b5f19389584eb5c09e375888382, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1346644922}
   m_SourcePrefab: {fileID: 100100000, guid: 01d43b5f19389584eb5c09e375888382, type: 3}
 --- !u!114 &5149274233757973684 stripped
 MonoBehaviour:
