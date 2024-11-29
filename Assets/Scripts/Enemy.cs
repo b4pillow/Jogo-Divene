@@ -51,7 +51,6 @@ public class Enemy : MonoBehaviour
         SR.color = OC;
         isTakingDamage = false;
     }
-
     void Update()
     {
         if (health <= 0)
@@ -61,8 +60,8 @@ public class Enemy : MonoBehaviour
             {
                 Instantiate(orbe, transform.position, quaternion.identity);
             }
-            Enemy.GetComponent<Enemy>().Die();
-           Destroy(gameObject);
+            Die();
+            Destroy(gameObject);
         }
 
         if (isRecoiling)
@@ -75,7 +74,7 @@ public class Enemy : MonoBehaviour
             }
         }
     }
-
+    
     public void EnemyHit(float damageDone, Vector2 hitDirection, float hitForce)
     {
         health -= damageDone;
@@ -89,7 +88,6 @@ public class Enemy : MonoBehaviour
     {
         StartCoroutine(FadeOut());
     }
-
     private IEnumerator FadeOut()
     {
         float fadeDuration = 1f;
@@ -97,15 +95,16 @@ public class Enemy : MonoBehaviour
 
         Color color = SR.color;
 
-        while(elapsedTime < fadeDuration)
+        while (elapsedTime < fadeDuration)
         {
-           elapsedTime += Time.deltaTime;
+            elapsedTime += Time.deltaTime;
 
-           color.a = math.Lerp(1f, 0f, elapsedTime / fadeDuration);
-           SR.color = color;
+            color.a = Mathf.Lerp(1f, 0f, elapsedTime / fadeDuration); // Correção aplicada
+            SR.color = color;
 
-        yield return null;
-        Destroy(gameObject);
+            yield return null;
         }
+
+        Destroy(gameObject);
     }
 }
