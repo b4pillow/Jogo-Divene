@@ -6,10 +6,12 @@ public class Botão : MonoBehaviour
 {
     public bool pressionado;
     private Animator anim;
+    private AudioSource Sound;
 
     void Start()
     {
         anim = GetComponent<Animator>();
+        Sound = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -21,6 +23,7 @@ public class Botão : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("BlocoDePedra"))
         { 
+            Sound.Play();
             anim.SetBool("Botão", true);
            pressionado = true;
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = System.Random;
 using Unity.Mathematics;
+using System;
 
 public class Enemy : MonoBehaviour
 {
@@ -19,14 +20,15 @@ public class Enemy : MonoBehaviour
     
     public GameObject orbe;
     private float dropChance = 1;
-    private AudioSource Sound;
     private SpriteRenderer SR;
     private Color OC;
     private bool isTakingDamage = false;
+    public AudioSource Audios;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        Audios = GetComponent<AudioSource>();
     }
 
     void Start()
@@ -48,6 +50,7 @@ public class Enemy : MonoBehaviour
         isTakingDamage = true;
         SR.color = Color.white;
         yield return new WaitForSeconds(0.3f);
+        Console.WriteLine("isso aqui esta funfando1");
         SR.color = OC;
         isTakingDamage = false;
     }
@@ -79,7 +82,7 @@ public class Enemy : MonoBehaviour
     {
         health -= damageDone;
         if (!isRecoiling)
-        {
+        { 
             rb.AddForce(-hitForce * recoilFactor * hitDirection);
         }
     }
@@ -101,6 +104,7 @@ public class Enemy : MonoBehaviour
 
             color.a = Mathf.Lerp(1f, 0f, elapsedTime / fadeDuration); // Correção aplicada
             SR.color = color;
+            Console.WriteLine("isso aqui esta funfando2");
 
             yield return null;
         }
