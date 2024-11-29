@@ -9,10 +9,14 @@ public class CheckPoint : MonoBehaviour
     public Transform player;
     private Animator anim;
 
+    public AudioSource Audio;
+    public AudioClip[] sound;
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Player"))
         {
+            Audio.clip = sound[0];
+            Audio.Play();
             anim.SetBool("Checkpoint", true);
             GameManager.Instance.savePointID = ID;
         }
@@ -25,5 +29,8 @@ public class CheckPoint : MonoBehaviour
         {
             player.position = transform.position;
         }
+
+        Audio = GetComponent<AudioSource>();
+
     }
 }

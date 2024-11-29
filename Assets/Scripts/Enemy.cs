@@ -20,6 +20,9 @@ public class Enemy : MonoBehaviour
     public GameObject orbe;
     private float dropChance = 1;
     private AudioSource Sound;
+    private SpriteRenderer SR;
+    private Color OC;
+    private bool isTakingDamage = false;
 
     private void Awake()
     {
@@ -28,7 +31,25 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        
+        SR = GetComponent<SpriteRenderer>();
+        OC = SR.color;
+    }
+
+    public void takeDamage()
+    {
+        if (!isTakingDamage)
+        {
+            StartCoroutine(FlashWhite());
+        }
+    }
+
+    private IEnumerator FlashWhite()
+    {
+        isTakingDamage = true;
+        SR.color = Color.white;
+        yield return new WaitForSeconds(0.3f);
+        SR.color = OC;
+        isTakingDamage = false;
     }
 
     void Update()

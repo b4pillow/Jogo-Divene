@@ -168,6 +168,8 @@ public class PlayerController : MonoBehaviour
        {
            if (Input.GetButtonDown("Dash") && canDash && !dashed)
            {
+               Audios.clip = sounds[4];
+               Audios.Play();
                StartCoroutine(Dash());
                dashed = true;
            }
@@ -245,6 +247,7 @@ public class PlayerController : MonoBehaviour
            if (objectsToHit[i].TryGetComponent(out Gate gateComponent))
            {
                gateComponent.EnemyHit(damage);
+
            }
        }
    }
@@ -297,6 +300,8 @@ public class PlayerController : MonoBehaviour
 
     private void ExecutarSpecial()
    {
+       Audios.clip = sounds[5];
+       Audios.Play();
        PlayerBullet playerBullet = Instantiate(Special, firePoint.position, firePoint.rotation);
        float direction = Mathf.Clamp(transform.localScale.x, -1, 1);
        playerBullet.SetBullet(new(direction, 0, 0));
@@ -370,5 +375,6 @@ public class PlayerController : MonoBehaviour
        lastCheckpointPosition = checkpointPosition;
        checkpointSaved = true;
    }
+   
 }
 
