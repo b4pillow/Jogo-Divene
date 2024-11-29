@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
 
     
     public GameObject orbe;
-    private float dropChance;
+    private float dropChance = 1;
     private AudioSource Sound;
 
     private void Awake()

@@ -199,7 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 627b71d6ff3da0d47be49a04cf30b0c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 6
+  health: 2
   recoilLength: 0
   recoilFactor: 0
   Damage: 10

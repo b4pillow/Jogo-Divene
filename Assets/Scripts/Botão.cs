@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Botão : MonoBehaviour
 {
-    public static bool pressionado;
+    public bool pressionado;
     private Animator anim;
 
     void Start()
