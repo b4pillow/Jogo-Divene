@@ -61,6 +61,7 @@ public class Enemy : MonoBehaviour
             {
                 Instantiate(orbe, transform.position, quaternion.identity);
             }
+            Enemy.GetComponent<Enemy>().Die();
            Destroy(gameObject);
         }
 
@@ -81,6 +82,30 @@ public class Enemy : MonoBehaviour
         if (!isRecoiling)
         {
             rb.AddForce(-hitForce * recoilFactor * hitDirection);
+        }
+    }
+
+    public void Die()
+    {
+        StartCoroutine(FadeOut());
+    }
+
+    private IEnumerator FadeOut()
+    {
+        float fadeDuration = 1f;
+        float elapsedTime = 0f;
+
+        Color color = SR.color;
+
+        while(elapsedTime < fadeDuration)
+        {
+           elapsedTime += Time.deltaTime;
+
+           color.a = math.Lerp(1f, 0f, elapsedTime / fadeDuration);
+           SR.color = color;
+
+        yield return null;
+        Destroy(gameObject);
         }
     }
 }
