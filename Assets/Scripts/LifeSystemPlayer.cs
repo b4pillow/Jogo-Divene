@@ -27,7 +27,7 @@ public class LifeSystemPlayer : MonoBehaviour
         health = maxHealth;
         barraDeVida.ChangeBar(health, maxHealth);
         anim = GetComponent<Animator>();
-        spriteRenderer.GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -58,7 +58,7 @@ public class LifeSystemPlayer : MonoBehaviour
             StartCoroutine(player.KnockbackEffect(knockbackDirection));
             StartCoroutine(StartInvulnerability());
 
-            Damage(2); //aqui ficara a logica de dano de cada inimigo especifico
+            Damage(1); //aqui ficara a logica de dano de cada inimigo especifico
         }
         if (other.gameObject.CompareTag("Espinho")  && !isInvulnerable)
         {
@@ -86,14 +86,14 @@ public class LifeSystemPlayer : MonoBehaviour
             Vector2 knockbackDirection = (transform.position - other.transform.position).normalized;
             StartCoroutine(player.KnockbackEffect(knockbackDirection));
             StartCoroutine(StartInvulnerability());
-            Damage(3);
+            Damage(2);
         }
         if (other.gameObject.CompareTag("MiniBoss")  && !isInvulnerable)
         {
             Vector2 knockbackDirection = (transform.position - other.transform.position).normalized;
             StartCoroutine(player.KnockbackEffect(knockbackDirection));
             StartCoroutine(StartInvulnerability());
-            Damage(4);
+            Damage(3);
         }
         if (other.gameObject.CompareTag("Lava")  && !isInvulnerable)
         {

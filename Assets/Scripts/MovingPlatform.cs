@@ -2,121 +2,130 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class MovingPlatform : MonoBehaviour
 {
-     public float moveSpeed;
-        public bool useTransform;
-        public bool shouldFlip;
-        
-        [SerializeField] private Vector2 movePosition;
-        [SerializeField] private Transform moveDestination;
+    [SerializeField] private Vector2 targetOffset;
+    [SerializeField] private Transform targetTransform;
+    
+    public float platformSpeed;
+    public bool useTargetTransform;
+    public bool flipDirection;
 
-        private Vector2 _initialPosition;
-        private Vector2 _moveTarget;
-        private Vector2 _currentMoveDirection;
-        private bool _isReturning;
-        private float _originalLocalScaleX;
+    private Vector2 startPosition;
+    private Vector2 targetPosition;
+    private Vector2 currentMoveDirection;
+    private bool isReturningToStart;
+    private float originalLocalScaleX;
+    private PlayerController playerController;
 
-        private PlayerController _player;
-        // Start is called before the first frame update
-        void Start()
-        {
-            if (shouldFlip) _originalLocalScaleX = transform.localScale.x;
-            
-            if (useTransform)
-            {
-                _moveTarget = moveDestination.localPosition;
-            }
-            else
-            {
-                _moveTarget = movePosition;
-            }
-            _initialPosition = transform.position;
-            _currentMoveDirection = (_initialPosition + _moveTarget - (Vector2) transform.position).normalized;
-        }
-    
-        // Update is called once per frame
-        void Update()
-        {
-            MovePlatform();
-        }
-    
-        private void MovePlatform()
-        {
-            if (!_isReturning)
-            {
-                if (Vector2.Distance(transform.position, _initialPosition + _moveTarget) < 1f)
-                {
-                    _isReturning = true;
-                    _currentMoveDirection = (_initialPosition - (Vector2) transform.position).normalized;
-                }
-            }
-            else
-            {
-                if (Vector2.Distance(transform.position, _initialPosition) < 1f)
-                {
-                    _isReturning = false;
-                    _currentMoveDirection = (_initialPosition + _moveTarget - (Vector2) transform.position).normalized;
-                }
-            }
-    
-            if (shouldFlip)
-            {
-                if (_isReturning)
-                    transform.localScale =
-                        new Vector3(-_originalLocalScaleX, transform.localScale.y, transform.localScale.z);
-                else
-                    transform.localScale = new Vector3(_originalLocalScaleX, transform.localScale.y, transform.localScale.z);
-            }
-    
-            transform.position += (Vector3)_currentMoveDirection * moveSpeed * Time.deltaTime;
-        }
-    
-        private void OnCollisionStay2D(Collision2D other)
-        {
-            if (!other.gameObject.CompareTag("Player"))
-            {
-                other.transform.SetParent(null);
-                return;
-            }
+    private void Start()
+    {
+        InitializePlatform();
+    }
 
-            if (other.transform.position.y <= transform.position.y)
-            {
-                other.transform.SetParent(null);
-                return;
-            }
-            _player ??= other.gameObject.GetComponent<PlayerController>();
-            if (_player.rb.velocity.x == 0)
-            {
-                other.transform.SetParent(transform);
-            }
-            else
-            {
-                other.transform.SetParent(null);
-            }
-            
-        }
-        
-        private void OnCollisionExit2D(Collision2D other)
+    private void Update()
+    {
+        MovePlatform();
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        HandlePlayerCollision(collision);
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
         {
-            if (other.gameObject.CompareTag("Player"))
-            {
-                other.transform.SetParent(null);
-            }
-        }
-    
-        private void OnDrawGizmos()
-        {
-            if (useTransform)
-            {
-                Debug.DrawLine(transform.position, transform.position + moveDestination.localPosition, Color.yellow);
-            }
-            else
-            {
-                Debug.DrawLine(transform.position, transform.position + (Vector3)movePosition, Color.red);
-            }
-            
+            collision.transform.SetParent(null);
         }
     }
+
+    private void OnDrawGizmos()
+    {
+        DrawMovementPath();
+    }
+
+    private void InitializePlatform()
+    {
+        if (flipDirection) 
+            originalLocalScaleX = transform.localScale.x;
+
+        targetPosition = useTargetTransform ? targetTransform.localPosition : targetOffset;
+
+        startPosition = transform.position;
+        currentMoveDirection = (startPosition + targetPosition - (Vector2)transform.position).normalized;
+    }
+
+    private void MovePlatform()
+    {
+        if (!isReturningToStart)
+        {
+            if (Vector2.Distance(transform.position, startPosition + targetPosition) < 1f)
+            {
+                isReturningToStart = true;
+                currentMoveDirection = (startPosition - (Vector2)transform.position).normalized;
+            }
+        }
+        else
+        {
+            if (Vector2.Distance(transform.position, startPosition) < 1f)
+            {
+                isReturningToStart = false;
+                currentMoveDirection = (startPosition + targetPosition - (Vector2)transform.position).normalized;
+            }
+        }
+
+        if (flipDirection)
+            FlipPlatformDirection();
+
+        transform.position += (Vector3)currentMoveDirection * platformSpeed * Time.deltaTime;
+    }
+
+    private void FlipPlatformDirection()
+    {
+        if (isReturningToStart)
+            transform.localScale = new Vector3(-originalLocalScaleX, transform.localScale.y, transform.localScale.z);
+        else
+            transform.localScale = new Vector3(originalLocalScaleX, transform.localScale.y, transform.localScale.z);
+    }
+
+    private void HandlePlayerCollision(Collision2D collision)
+    {
+        if (!collision.gameObject.CompareTag("Player"))
+        {
+            collision.transform.SetParent(null);
+            return;
+        }
+
+        if (collision.transform.position.y <= transform.position.y)
+        {
+            collision.transform.SetParent(null);
+            return;
+        }
+
+        playerController ??= collision.gameObject.GetComponent<PlayerController>();
+
+        if (playerController.rb.velocity.x == 0)
+        {
+            collision.transform.SetParent(transform);
+        }
+        else
+        {
+            collision.transform.SetParent(null);
+        }
+    }
+
+    private void DrawMovementPath()
+    {
+        if (useTargetTransform)
+        {
+            Debug.DrawLine(transform.position, transform.position + targetTransform.localPosition, Color.yellow);
+        }
+        else
+        {
+            Debug.DrawLine(transform.position, transform.position + (Vector3)targetOffset, Color.red);
+        }
+    }
+}

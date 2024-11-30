@@ -24,8 +24,14 @@ public class OrbeCounter : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Orb"))
         {
-            sound.Play();
+            collision.gameObject.GetComponent<AudioSource>().Play();
             UpdateOrbeValue(orbeNumber + 1);
+            Destroy(collision.gameObject, 0.5f);
+        }
+		if (collision.gameObject.CompareTag("OrbBoss"))
+        {
+            collision.gameObject.GetComponent<AudioSource>().Play();
+            UpdateOrbeValue(orbeNumber + 999);
             Destroy(collision.gameObject, 0.5f);
         }
     }

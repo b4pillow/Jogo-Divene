@@ -73,6 +73,7 @@ public class PlayerController : MonoBehaviour
    public TMPro.TextMeshProUGUI texto;
    public AudioSource Audios;
    public AudioClip[] sounds;
+
    void Start()
    {
        pState = GetComponent<PlayerStateList>();
@@ -326,8 +327,8 @@ public class PlayerController : MonoBehaviour
        {
            if (Input.GetButtonUp("Jump") && rb.velocity.y > 0)
            {
-               Audios.clip = sounds[2];
-               Audios.Play();
+               //Audios.clip = sounds[2];
+               //Audios.Play();
                rb.velocity = new Vector2(rb.velocity.x, 0);
                pState.jumping = false;
            }
@@ -337,13 +338,13 @@ public class PlayerController : MonoBehaviour
            {
                if (jumpBufferCounter > 0 && coyoteTimeCounter > 0)
                {
+ 					Audios.clip = sounds[2];
+               		Audios.Play();
                    rb.velocity = new Vector2(rb.velocity.x, jumpForce);
                    pState.jumping = true;
                    jumpBufferCounter = 0;
                }
            }
-
-
            anim.SetBool("Jumping", !Grounded());
        }
    }

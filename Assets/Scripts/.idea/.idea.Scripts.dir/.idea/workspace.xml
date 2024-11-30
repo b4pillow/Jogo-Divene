@@ -19,7 +19,7 @@
     <setting file="file://$PROJECT_DIR$/Dialogue.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DialogueControl.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DisapearPlatform.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Enemy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Enemy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/EnemyMove.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/EnemyShoot.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Espinhos.cs" root0="FORCE_HIGHLIGHTING" />
@@ -37,7 +37,7 @@
     <setting file="file://$PROJECT_DIR$/OrbDoor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/OrbeCounter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ParedeQueBloqueia.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PlayerController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PlayerStateList.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Serra.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TutorialMensagem.cs" root0="FORCE_HIGHLIGHTING" />
@@ -119,6 +119,9 @@
       <workItem from="1732884200479" duration="36000" />
       <workItem from="1732897468266" duration="596000" />
       <workItem from="1732902720514" duration="26000" />
+      <workItem from="1732932347736" duration="3000" />
+      <workItem from="1732932475296" duration="648000" />
+      <workItem from="1732937135090" duration="1161000" />
     </task>
     <servers />
   </component>
